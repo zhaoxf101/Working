@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        .pagination {
+            margin: 0 auto;
+            text-align: center;
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+            .pagination ul {
+                width: auto;
+                display: inline-block;
+                *display: inline;
+                *zoom: 1;
+            }
+
+            .pagination li {
+                display: inline-block;
+                *display: inline;
+                *zoom: 1;
+            }
+    </style>
+</head>
+<body>
+    <div id="divFoot" class="pagination">
+        <ul>
+            <li page="1">
+                <a class="aGoPageBeforePageDisable">第一页</a>
+            </li>
+            <li page="20">
+                <a class="aGoPageBeforePageDisable">上一页</a>
+            </li>
+            <li page="14"><a href="javascript:void(0)">14</a></li>
+            <li page="15">
+                <a href="javascript:void(0)">15</a>
+            </li>
+            <li page="16">
+                <a href="javascript:void(0)">16</a>
+            </li>
+            <li page="17">
+                <a href="javascript:void(0)">17</a>
+            </li>
+            <li page="18">
+                <a href="javascript:void(0)">18</a>
+            </li>
+            <li page="19">
+                <a href="javascript:void(0)">19</a>
+            </li>
+            <li page="20">
+                <a href="javascript:void(0)">20</a>
+            </li>
+            <li class="active currentPage">
+                <a>21</a>
+            </li>
+            <li class="active">
+                <a>后一页</a>
+            </li>
+            <li class="active">
+                <a>最末页</a>
+            </li>
+            <li class="disabled">
+                <a>共21页， 209 条记录</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
