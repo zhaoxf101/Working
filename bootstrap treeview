@@ -1,0 +1,346 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="system_op_limit_add.aspx.cs" Inherits="View_System_System" %>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head runat="server">
+    <meta charset="utf-8">
+    <title>TMC-System</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!---让 IE 浏览器运行最新的渲染模式---->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="renderer" content="webkit">
+    <!-----国产浏览器默认采用高速模式渲染页面--------->
+    <!-- Bootstrap -->
+    <link href="../../ua/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../ua/bootstrap/css/bootstrapValidator.min.css" rel="stylesheet">
+    <!---User Defined css & js  ------------------->
+    <link href="../../ua/css/main-style.css" rel="stylesheet">
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../../ua/bootstrap/js/html5shiv.min.js"></script>
+    <script src="../../ua/bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container-fluid position shadow">
+            <ol class="breadcrumb">
+                <li><a href="">系统</a></li>
+                <li><a href="./system_op_limit.aspx">操作权限管理</a></li>
+                <li class="active" id="liTitle">新增操作权限</li>
+            </ol>
+        </div>
+        <div class="line15"></div>
+        <div class="container-fluid border">
+            <div class="form-inline add-form-body">
+                <table class="table">
+                    <tr>
+                        <td colspan="2">
+                            <div class="form-group add-form-style1">
+                                <label class="align-r">名称：</label>
+                                <input type="text" class="form-control" name="name" id="txtName">
+                                <span class="red">*</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="form-group add-form-style1">
+                                <label class="align-r">编码：</label>
+                                <input type="text" class="form-control" name="code" id="txtCode">
+                                <span class="red">*</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="form-group add-form-style1">
+                                <label class="align-r">说明：</label>
+                                <input type="text" class="form-control" name="note" id="txtNote">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="border-top: 1px solid #cccccc;">
+                        <td colspan="2">
+                            <span>勾选权限：</span><div id="treeViewPermission" class=""></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="align-c">
+                                <button type="submit" class="btn btn-warning" id="btnSave" style="margin-right: 150px;">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>
+                                <button class="btn btn-default" id="btnBack">返&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-----------tree------------>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="../../ua/bootstrap/js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../../ua/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../ua/bootstrap/js/bootstrapValidator.min.js"></script>
+
+        <!-----------tree------------>
+        <script src="../../ua/js/bootstrap-treeview.js"></script>
+        <script type="text/javascript">
+            var objId = "";
+            var permissionTreeView = null;
+            var tree = null;
+
+            var functionData = null;
+
+            $(function () {
+                $('#form1').bootstrapValidator({
+                    message: 'This value is not valid',
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        name: {
+                            validators: {
+                                notEmpty: {
+                                    message: '“名称”不能为空！'
+                                }
+                            }
+                        },
+                        code: {
+                            validators: {
+                                notEmpty: {
+                                    message: '“编码”不能为空！'
+                                }
+                            }
+                        }
+                    }
+                });
+
+                $("#btnSave").click(function () {
+                    var validator = $('#form1').data('bootstrapValidator');
+
+                    if (!validator.isValid()) {
+                        validator.validate();
+                        return false;
+                    }
+
+                    var checkedNodes = tree.getChecked();
+
+                    $.each(checkedNodes, function (index, value) {
+                        console.log(value.nodeId);
+
+                        if (!value.nodes) {
+                            console.log("Ok. leaf node. nodeId: " + value.nodeId);
+                        }
+                    });
+
+                    var data = {
+                        id: objId,
+                        name: $("#txtName").val(),
+                        code: $("#txtCode").val(),
+                        note: $("#txtNote").val(),
+                    };
+
+                    if (objId) {
+                        Page.Update(JSON.stringify(data));
+                    }
+                    else {
+                        Page.Create(JSON.stringify(data));
+                    }
+
+                    window.location.href = "system_op_limit.aspx";
+
+                    return false;
+                });
+
+                $("#btnBack").click(function () {
+                    window.location.href = "system_op_limit.aspx";
+
+                    return false;
+                });
+
+                if (location.search.length > 0) {
+                    var queryString = location.search.substring(1);
+                    var items = queryString.split("&");
+                    var item = null;
+                    var name = null;
+
+                    for (var i = 0; i < items.length; i++) {
+                        item = items[i].split("=");
+                        name = decodeURIComponent(item[0]);
+
+                        if (name == "id") {
+                            objId = decodeURIComponent(item[1]);
+                            break;
+                        }
+                    }
+
+                    $("#liTitle").text("修改操作权限");
+                }
+
+                function setChildrenChecked(root, checked) {
+                    var nodes = root.nodes;
+
+                    if (nodes) {
+                        for (var i = 0; i < nodes.length; i++) {
+                            if (checked) {
+                                tree.checkNode(nodes[i].nodeId, { silent: true });
+                            }
+                            else {
+                                tree.uncheckNode(nodes[i].nodeId, { silent: true });
+                            }
+
+                            arguments.callee(nodes[i], checked);
+                        }
+                    }
+
+                }
+
+                var result = Page.SearchByID(objId);
+                if (!result.error) {
+                    var objData = JSON.parse(result.value);
+
+                    if (objData.name) {
+                        $("#txtName").val(objData.name);
+                    }
+
+                    if (objData.code) {
+                        $("#txtCode").val(objData.code);
+                    }
+
+                    if (objData.note) {
+                        $("#txtNote").val(objData.note);
+                    }
+                }
+
+                functionData = Page.QuerySystemFunctions().value;
+
+                permissionTreeView = $('#treeViewPermission').treeview({
+                    data: functionData,
+                    multiSelect: true,
+                    showIcon: false,
+                    showCheckbox: true,
+                    selectedColor: "#666",
+                    selectedBackColor: "white",
+
+                    onNodeChecked: function (event, node) {
+                        console.log("checked! node: " + node.nodeId);
+
+                        var parent = tree.getParent(node);
+
+                        while (parent) {
+                            console.log("tree.getParent. parent: " + parent.nodeId);
+
+                            tree.checkNode(parent, { silent: true });
+                            parent = tree.getParent(parent);
+                        }
+
+                        setChildrenChecked(node, true);
+                    },
+
+                    onNodeUnchecked: function (event, node) {
+                        var parent = tree.getParent(node);
+                        var checkedSiblings = tree.getSiblings(node).filter(function (item) {
+                            return item.state.checked;
+                        });
+
+                        while (parent && checkedSiblings.length == 0) {
+                            console.log("tree.getParent. parent: " + parent.nodeId);
+
+                            tree.uncheckNode(parent, { silent: true });
+
+                            checkedSiblings = tree.getSiblings(parent).filter(function (item) {
+                                return item.state.checked;
+                            });
+                            parent = tree.getParent(parent);
+                        }
+
+                        setChildrenChecked(node, false);
+                    },
+
+                    onNodeSelected: function (event, node) {
+                        console.log("selected! node: " + node.nodeId);
+
+                        tree.toggleNodeChecked(node.nodeId, { silent: false });
+                    },
+
+                    onNodeUnselected: function (event, node) {
+                        console.log("unselected! node: " + node.nodeId);
+
+                        tree.toggleNodeChecked(node.nodeId, { silent: false });
+                    }
+                });
+
+                tree = permissionTreeView.treeview(true);
+            });
+
+            function Create() {
+                var param = new Object();
+
+                var value = $.trim($("#txtName").val());
+                if (value != "") {
+                    param["Name"] = value;
+                }
+
+                value = $.trim($("#txtCode").val());
+                if (value != "") {
+                    param["Code"] = value;
+                }
+
+                value = $.trim($("#txtNote").val());
+                if (value != "") {
+                    param["Note"] = value;
+                }
+
+                var obj = Page.Create(JSON.stringify(param));
+
+                if (obj.error != null) {
+                    alert(obj.error.Message);
+                }
+                else {
+                    alert("添加成功！");
+                }
+            }
+
+            function Update() {
+                var id = $("#btnUpdate").attr("accesskey");
+                var val = new Object();
+                if ($.trim($("#txtName").val()) != "") {
+                    val["Name"] = $.trim($("#txtName").val());
+                }
+                if ($.trim($("#txtAge").val()) != "") {
+                    val["Age"] = $.trim($("#txtAge").val());
+                }
+                if ($.trim($("#txtBirthday").val()) != "") {
+                    val["Birthday"] = $.trim($("#txtBirthday").val());
+                }
+                var obj = Page.Update(id, JSON.stringify(val));
+                if (obj.error != null) {
+                    alert(obj.error.Message);
+                }
+                else {
+                    alert("修改成功！");
+                    $("#txtName").val("");
+                    $("#txtAge").val("");
+                    $("#txtBirthday").val("");
+                    $("#btnUpdate").attr("accesskey", "");
+                }
+            }
+
+            function SearchByID(id) {
+                var obj = JSON.parse(Page.SearchByID(id).value);
+
+                $("#txtName").val(obj.Name);
+                $("#txtCode").val(obj.Code);
+                $("#txtNote").val(obj.Note);
+
+
+            }
+        </script>
+    </form>
+</body>
+</html>
