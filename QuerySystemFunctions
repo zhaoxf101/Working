@@ -1,0 +1,142 @@
+/// <summary>
+        /// 查询所有的系统功能。
+        /// </summary>
+        /// <returns></returns>
+        [AjaxPro.AjaxMethod]
+        public string QuerySystemFunctions()
+        {
+            var its = ServiceFactory.Factory.GetService<IManagePerformanceService>();
+            var list = its.GetAllPerformance();
+
+            var root = list.FirstOrDefault(i => i.Parent == null);
+
+            if (root != null)
+            {
+                var workItem = new WorkItem
+                {
+                    Name = root.Name,
+                    Id = root.ID,
+                    Children = new List<WorkItem>(),
+                    JsonChildren = new List<object>()
+                };
+
+                var rootWorkItem = workItem;
+                var parent = workItem.Parent;
+
+                //Debug.WriteLine("root: " + workItem.Name);
+
+                var workQueue = new Queue<WorkItem>();
+
+                var nodes = list.Where(i => i.Parent != null && i.Parent.ID == root.ID);
+                foreach (var item in nodes)
+                {
+                    var temp = new WorkItem
+                    {
+                        Name = item.Name,
+                        Id = item.ID,
+                        Parent = workItem,
+                        Children = new List<WorkItem>(),
+                        JsonChildren = new List<object>()
+                    };
+                    //Debug.WriteLine("  temp: " + temp.Name);
+
+                    workItem.Children.Add(temp);
+
+                    workQueue.Enqueue(temp);
+                }
+
+                object json = null;
+
+                if (rootWorkItem.Children.Count > 0)
+                {
+                    json = new object[]{ new
+                    {
+                        text = rootWorkItem.Name,
+                        objId = rootWorkItem.Id.ToString(),
+                        nodes = rootWorkItem.JsonChildren
+                    }};
+                }
+                else
+                {
+                    json = new object[]{ new
+                    {
+                        text = rootWorkItem.Name,
+                        objId = rootWorkItem.Id.ToString()
+                    }};
+                }
+
+                while (workQueue.Count > 0)
+                {
+                    workItem = workQueue.Dequeue();
+                    parent = workItem.Parent;
+
+                    //Debug.WriteLine("   while() workItem: " + workItem.Name + " id: " + workItem.Id);
+
+                    nodes = list.Where(i => i.Parent != null && i.Parent.ID == workItem.Id);
+
+                    if (nodes.Count() > 0)
+                    {
+                        //Debug.WriteLine("    workItem: " + workItem.Name + " id: " + workItem.Id);
+
+                        foreach (var item in nodes)
+                        {
+                            var temp = new WorkItem
+                            {
+                                Name = item.Name,
+                                Id = item.ID,
+                                Parent = workItem,
+                                Children = new List<WorkItem>(),
+                                JsonChildren = new List<object>()
+                            };
+
+                            //Debug.WriteLine("      temp: " + temp.Name + " id: " + temp.Id);
+
+                            workItem.Children.Add(temp);
+
+                            workQueue.Enqueue(temp);
+                        }
+                    }
+
+                    if (parent != null)
+                    {
+                        if (workItem.Children.Count > 0)
+                        {
+                            parent.JsonChildren.Add(new
+                            {
+                                text = workItem.Name,
+                                objId = workItem.Id.ToString(),
+                                nodes = workItem.JsonChildren
+                            });
+                        }
+                        else
+                        {
+                            parent.JsonChildren.Add(new
+                            {
+                                text = workItem.Name,
+                                objId = workItem.Id.ToString()
+                            });
+                        }
+                    }
+                }
+
+                var serializer = new JavaScriptSerializer();
+                var jsonString = serializer.Serialize(json);
+
+                return jsonString;
+            }
+
+            return "[]";
+        }
+
+        class WorkItem
+        {
+            public string Name { get; set; }
+
+            public Guid Id { get; set; }
+
+            public WorkItem Parent { get; set; }
+
+            public List<WorkItem> Children { get; set; }
+
+            public List<object> JsonChildren { get; set; }
+        }
