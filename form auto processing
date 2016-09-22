@@ -1,0 +1,200 @@
+    <script type="text/javascript">
+        var objId = "";
+        var pageMode = "";
+        var fieldElements = [];
+
+        $(function () {
+            $('#form1').bootstrapValidator({
+                message: 'This value is not valid',
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    name: {
+                        validators: {
+                            notEmpty: {
+                                message: '“姓名”不能为空！'
+                            }
+                        }
+                    },
+                    loginName: {
+                        validators: {
+                            notEmpty: {
+                                message: '“登录名”不能为空！'
+                            }
+                        }
+                    },
+                    password: {
+                        validators: {
+                            notEmpty: {
+                                message: '“密码”不能为空！'
+                            }
+                        }
+                    },
+                    department: {
+                        validators: {
+                            notEmpty: {
+                                message: '“组织架构”不能为空！'
+                            }
+                        }
+                    },
+                    settlementLevel: {
+                        validators: {
+                            notEmpty: {
+                                message: '“结算级别”不能为空！'
+                            }
+                        }
+                    },
+                    pageRole: {
+                        validators: {
+                            notEmpty: {
+                                message: '“操作权限”不能为空！'
+                            }
+                        }
+                    },
+                    dataRole: {
+                        validators: {
+                            notEmpty: {
+                                message: '“数据权限”不能为空！'
+                            }
+                        }
+                    }
+                }
+            });
+
+            $("#btnSave").click(function () {
+                var validator = $('#form1').data('bootstrapValidator');
+
+                var fields = getPageFields();
+
+                validator.validate();
+                if (!validator.isValid()) {
+                    return false;
+                }
+
+                var data = getPageFields();
+
+                if (objId) {
+                    Page.Update(JSON.stringify(data));
+                }
+                else {
+                    Page.Create(JSON.stringify(data));
+                }
+
+                window.location.href = "system_staff_management.aspx";
+
+                return false;
+            });
+
+            $("#btnBack").click(function () {
+                window.location.href = "system_staff_management.aspx";
+
+                return false;
+            });
+
+            //
+            // 初始化输入元素
+            //
+            var result = Page.QuerySettlementLevels();
+
+            if (!result.error) {
+                var categoryList = JSON.parse(result.value);
+                $.each(categoryList, function (index, item) {
+                    $("<option></option").val(item.id).text(item.name).appendTo($("#selectSettlementLevel"));
+                });
+            }
+
+            var args = getQueryStringArgs();
+
+            if (args["id"]) {
+                objId = args["id"];
+            }
+
+            if (args["mode"]) {
+                pageMode = args["mode"];
+            }
+
+            switch (pageMode) {
+                case "view":
+                    $("#liTitle").text("查看人员");
+                    initPageFields();
+                    break;
+                case "edit":
+                    $("#liTitle").text("修改人员");
+                    initPageFields();
+                    break;
+            }
+        });
+
+        //
+        // 表单输入元素自动处理
+        //
+        $("#form1 :input").each(function (index, value) {
+            switch (value.tagName) {
+                case "INPUT":
+                    switch (value.type) {
+                        case "text":
+                        case "radio":
+                            fieldElements.push(value);
+                            break;
+                    }
+                    break;
+                case "SELECT":
+                    fieldElements.push(value);
+                    break;
+            }
+        });
+
+        function initPageFields() {
+            var result = Page.SearchByID(objId);
+            if (!result.error) {
+                var obj = JSON.parse(result.value);
+
+                for (var i = 0; i < fieldElements.length; i++) {
+                    var element = fieldElements[i];
+                    if (element.name && obj[element.name]) {
+                        $(element).val(obj[element.name]);
+                    }
+                }
+            }
+        }
+
+        function getPageFields() {
+            var fields = new Object();
+            var value = null;
+
+            for (var i = 0; i < fieldElements.length; i++) {
+                var element = fieldElements[i];
+                value = $.trim($(element).val());
+
+                if (value && element.name) {
+                    fields[element.name] = value;
+                }
+            }
+
+            return fields;
+        }
+
+        function getQueryStringArgs()
+        {
+            var qs = location.search.length > 0 ? location.search.substring(1) : "";
+
+            var args = [];
+
+            var items = qs.split("&");
+            var item = null;
+            var name = null;
+            var value = null;
+
+            for (var i = 0; i < items.length; i++) {
+                item = items[i].split("=");
+                name = decodeURIComponent(item[0]);
+                vlaue = decodeURIComponent(item[1]);
+                args[name] = value;
+            }
+                
+            return args;
+        }
+    </script>
