@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -18,12 +18,14 @@ using System.Windows.Shapes;
 namespace TfSync
 {
     /// <summary>
-    /// MainWindow.xaml çš„äº¤äº’é€»è¾‘
+    /// MainWindow.xaml µÄ½»»¥Âß¼­
     /// </summary>
     public partial class MainWindow : Window
     {
         string _tfFileName;
         string _svnFileName;
+        string _tortoiseSvnFileName;
+
         string _syncPath;
         string[] _workingPaths;
 
@@ -37,9 +39,10 @@ namespace TfSync
 
             _tfFileName = @"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\TF.exe";
             _svnFileName = @"C:\Program Files\SlikSvn\bin\svn.exe";
+            _tortoiseSvnFileName = @"C:\Program Files\TortoiseSVN\bin\TortoiseProc.exe";
 
             _syncPath = @"D:\Work\CITSECOS";
-            _workingPaths = new string[] { @"C:\Users\Administrator\Desktop\æ–°å»ºæ–‡ä»¶å¤¹", @"C:\Users\Administrator\Desktop\Service\CITSERP" };
+            _workingPaths = new string[] { @"C:\Users\Administrator\Desktop\ĞÂ½¨ÎÄ¼ş¼Ğ", @"C:\Users\Administrator\Desktop\Service\CITSERP" };
         }
 
         void SyncToSvn()
@@ -51,11 +54,16 @@ namespace TfSync
 
             // svn commit
             // svn commit -m "s" D:\Work\CITSECOS
-            Log("svn commit", true, true);
-            Execute(_svnFileName, "commit -m \"s\" " + "\"" + _syncPath + "\"");
+            //Log("svn commit", true, true);
+            //Execute(_svnFileName, "commit -m \"s\" " + "\"" + _syncPath + "\"");
+
+            // tortoiseSvn commit
+            // tortoiseproc /command:commit /path:"" /logmsg:"" /closeonend:0
+            Log("tortoise svn commit", true, true);
+            Execute(_tortoiseSvnFileName, string.Format("/command:commit /logmsg:\"s\" /path:\"{0}\"", _syncPath));
 
             // svn update
-            // svn up C:\Users\Administrator\Desktop\æ–°å»ºæ–‡ä»¶å¤¹
+            // svn up C:\Users\Administrator\Desktop\ĞÂ½¨ÎÄ¼ş¼Ğ
             foreach (var path in _workingPaths)
             {
                 Log("svn update " + path, true, true);
@@ -72,12 +80,12 @@ namespace TfSync
 
             //var updateResult = "";
             //updateResult =
-            //@"æ­£åœ¨å‡çº§ 'D:\Work\CITSECOS':
-            //D    D:\Work\CITSECOS\test\æ–°å»ºæ–‡ä»¶å¤¹\æ–°å»ºæ–‡æœ¬æ–‡æ¡£.txt
-            //A    D:\Work\CITSECOS\test\æ–°å»ºæ–‡ä»¶å¤¹\æ–°å»ºæ–‡æœ¬æ–‡æ¡£ (2).txt
-            //A    D:\Work\CITSECOS\test\æ–°å»ºæ–‡ä»¶å¤¹\æ–°å»ºæ–‡æœ¬æ–‡æ¡£(Updated File Name).txt
-            //U    D:\Work\CITSECOS\test\æ–°å»ºæ–‡æœ¬æ–‡æ¡£.txt
-            //æ›´æ–°åˆ°ç‰ˆæœ¬ 132ã€‚";
+            //@"ÕıÔÚÉı¼¶ 'D:\Work\CITSECOS':
+            //D    D:\Work\CITSECOS\test\ĞÂ½¨ÎÄ¼ş¼Ğ\ĞÂ½¨ÎÄ±¾ÎÄµµ.txt
+            //A    D:\Work\CITSECOS\test\ĞÂ½¨ÎÄ¼ş¼Ğ\ĞÂ½¨ÎÄ±¾ÎÄµµ (2).txt
+            //A    D:\Work\CITSECOS\test\ĞÂ½¨ÎÄ¼ş¼Ğ\ĞÂ½¨ÎÄ±¾ÎÄµµ(Updated File Name).txt
+            //U    D:\Work\CITSECOS\test\ĞÂ½¨ÎÄ±¾ÎÄµµ.txt
+            //¸üĞÂµ½°æ±¾ 132¡£";
             Debug.WriteLine(updateResult);
 
             var lines = updateResult.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
@@ -89,26 +97,26 @@ namespace TfSync
                 switch (line[0])
                 {
                     case 'A':
-                        // tf add D:\Work\CITSECOS\test\æ–°å»ºæ–‡ä»¶å¤¹
+                        // tf add D:\Work\CITSECOS\test\ĞÂ½¨ÎÄ¼ş¼Ğ
                         Log("add " + fileName);
                         Execute(_tfFileName, "add " + "\"" + fileName + "\"");
                         break;
                     case 'U':
-                        // TF.exe checkout D:\Work\CITSECOS\test\æ–°å»ºæ–‡æœ¬æ–‡æ¡£.txt
+                        // TF.exe checkout D:\Work\CITSECOS\test\ĞÂ½¨ÎÄ±¾ÎÄµµ.txt
                         Log("checkout " + fileName);
                         Execute(_tfFileName, "checkout " + "\"" + fileName + "\"");
                         break;
                     case 'D':
-                        // TF.exe delete D:\Work\CITSECOS\test\æ–°å»ºæ–‡ä»¶å¤¹\æ–°å»ºæ–‡æœ¬æ–‡æ¡£.txt
+                        // TF.exe delete D:\Work\CITSECOS\test\ĞÂ½¨ÎÄ¼ş¼Ğ\ĞÂ½¨ÎÄ±¾ÎÄµµ.txt
                         Log("delete " + fileName);
                         Execute(_tfFileName, "delete " + "\"" + fileName + "\"");
                         break;
                 }
             }
 
-            // TF.exe checkin /comment:"<<< Committed By TFSync >>>" /notes:"ä»£ç å®¡é˜…è€…"="zhaoxf" /noprompt
-            //Execute(_tfFileName, "checkin /comment:\" <<< Committed By TFSync >>> \" /notes:\"ä»£ç å®¡é˜…è€…\"=\"zhaoxf\" /noprompt");
-            Execute(_tfFileName, "checkin /notes:\"ä»£ç å®¡é˜…è€…\"=\"zhaoxf\" /noprompt");
+            // TF.exe checkin /comment:"<<< Committed By TFSync >>>" /notes:"´úÂëÉóÔÄÕß"="zhaoxf" /noprompt
+            //Execute(_tfFileName, "checkin /comment:\" <<< Committed By TFSync >>> \" /notes:\"´úÂëÉóÔÄÕß\"=\"zhaoxf\" /noprompt");
+            Execute(_tfFileName, "checkin /notes:\"´úÂëÉóÔÄÕß\"=\"zhaoxf\" /noprompt");
 
         }
 
@@ -171,7 +179,7 @@ namespace TfSync
         {
             var builder = new StringBuilder();
             builder.AppendFormat("{0}{1}{2}", withTimeStamp ? Environment.NewLine + DateTime.Now.ToString("[yyyy-MM-dd HH:mm:ss.fff] ") : "", message,
-                withTitleSeparateLine ? 
+                withTitleSeparateLine ?
                 Environment.NewLine + "========================================================================" + Environment.NewLine :
                 "");
 
