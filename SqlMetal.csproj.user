@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartArguments>/server:%28localdb%29\projectsV13 /database:TestDemo /views /code:EF1.designer.cs /namespace:EFramework.DalLinq /context:EFDataContext</StartArguments>
+  </PropertyGroup>
+</Project>
