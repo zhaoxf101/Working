@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="UserAndConnectionConflict" xml:space="preserve">
+    <value>SQM1016: User cannot be specified when a connection string is specified already.</value>
+  </data>
+  <data name="DatabaseUsage" xml:space="preserve">
+    <value>/database:&lt;name&gt;</value>
+  </data>
+  <data name="UnknownSerializationMode" xml:space="preserve">
+    <value>SQM1001: Unknown serialization mode: '{0}'.</value>
+  </data>
+  <data name="UnableToExtractSproc" xml:space="preserve">
+    <value>SQM1014: Unable to extract stored procedure '{0}' from SqlServer. {1}</value>
+  </data>
+  <data name="UnableToExtractTable" xml:space="preserve">
+    <value>SQM1012: Unable to extract table '{0}' from SqlServer. {1}</value>
+  </data>
+  <data name="LanguageUsage" xml:space="preserve">
+    <value>/language:&lt;language&gt;</value>
+  </data>
+  <data name="OwningTeam" xml:space="preserve">
+    <value>DLinq</value>
+  </data>
+  <data name="ExtractFromSdfExample" xml:space="preserve">
+    <value>SqlMetal /dbml:northwind.dbml northwind.sdf</value>
+  </data>
+  <data name="ContextUsage" xml:space="preserve">
+    <value>/context:&lt;type&gt;</value>
+  </data>
+  <data name="EntityBaseDescription" xml:space="preserve">
+    <value>Base class of entity classes in the generated code (default: entities have no base class).</value>
+  </data>
+  <data name="ContextDescription" xml:space="preserve">
+    <value>Name of data context class (default: derived from database name).</value>
+  </data>
+  <data name="ExtractFromSqlExpressExample" xml:space="preserve">
+    <value>SqlMetal /server:.\sqlexpress /database:northwind /dbml:northwind.dbml</value>
+  </data>
+  <data name="ExtractUsingConnectionStringDescription" xml:space="preserve">
+    <value>Generate dbml by using a connection string in the command line:</value>
+  </data>
+  <data name="ProviderDescription" xml:space="preserve">
+    <value>Provider type: SQLCompact, SQL2000, SQL2005, or SQL2008. (default: provider is determined at run time).</value>
+  </data>
+  <data name="ConnectionStringUsage" xml:space="preserve">
+    <value>/conn:&lt;connection string&gt;</value>
+  </data>
+  <data name="DirectGenerationExample" xml:space="preserve">
+    <value>SqlMetal /server:myserver /database:northwind /code:nwind.cs /namespace:nwind </value>
+  </data>
+  <data name="ConnectionStringDescription" xml:space="preserve">
+    <value>Database connection string. Cannot be used with /server, /database, /user or /password options.</value>
+  </data>
+  <data name="ExtractFromSqlExpressDescription" xml:space="preserve">
+    <value>Generate dbml from SqlExpress local server:</value>
+  </data>
+  <data name="UsageOptions" xml:space="preserve">
+    <value>Options:</value>
+  </data>
+  <data name="ProviderNotInstalled" xml:space="preserve">
+    <value>Cannot open '{0}'. Provider '{1}' not installed.</value>
+  </data>
+  <data name="CouldNotIdentifyPrimaryKeyColumn" xml:space="preserve">
+    <value>Could not identify primary key column '{0}' in table '{1}'.</value>
+  </data>
+  <data name="MapDescription" xml:space="preserve">
+    <value>Generate mapping file, not attributes. Cannot be used with /dbml option.</value>
+  </data>
+  <data name="InputFileDoesNotExist" xml:space="preserve">
+    <value>SQM1003: Input file '{0}' does not exist.</value>
+  </data>
+  <data name="UnableToExtractColumnBecauseOfUDT" xml:space="preserve">
+    <value>SQM1021: Unable to extract column '{0}' of Table '{1}' from SqlServer because the column's DbType is a user-defined type (UDT). </value>
+  </data>
+  <data name="PluralizeUsage" xml:space="preserve">
+    <value>/pluralize</value>
+  </data>
+  <data name="TimeOutUsage" xml:space="preserve">
+    <value>/timeout:&lt;seconds&gt;</value>
+  </data>
+  <data name="DatabaseAndConnectionConflict" xml:space="preserve">
+    <value>SQM1018: Database cannot be specified when a connection string is specified already.</value>
+  </data>
+  <data name="VersionString" xml:space="preserve">
+    <value>Microsoft (R) Database Mapping Generator 2008 version {0}
+for Microsoft (R) .NET Framework version {1}</value>
+  </data>
+  <data name="DatabaseIsNotSpecified" xml:space="preserve">
+    <value>SQM1011: An input file or a database must be specified.</value>
+  </data>
+  <data name="UserIsMissing" xml:space="preserve">
+    <value>SQM1010: User is missing when password is present.</value>
+  </data>
+  <data name="ProviderUsage" xml:space="preserve">
+    <value>/provider:&lt;type&gt;</value>
+  </data>
+  <data name="NamespaceUsage" xml:space="preserve">
+    <value>/namespace:&lt;name&gt;</value>
+  </data>
+  <data name="OutputFileIOError" xml:space="preserve">
+    <value>SQM1007: There is an IO error and the output file '{0}' cannot be opened.</value>
+  </data>
+  <data name="SprocsDescription" xml:space="preserve">
+    <value>Extract stored procedures.</value>
+  </data>
+  <data name="SprocResultColumnsHaveSameName" xml:space="preserve">
+    <value>SQM1019: Unable to extract stored procedure '{0}' from SqlServer because its result set contains columns with the same name '{1}'.</value>
+  </data>
+  <data name="ServerUsage" xml:space="preserve">
+    <value>/server:&lt;name&gt;</value>
+  </data>
+  <data name="ExtractDbmlExample" xml:space="preserve">
+    <value>SqlMetal /server:myserver /database:northwind /dbml:northwind.dbml /namespace:nwind</value>
+  </data>
+  <data name="UsageHeader" xml:space="preserve">
+    <value>SqlMetal [options] [&lt;input file&gt;]</value>
+  </data>
+  <data name="DbmlOrCodeNotBoth" xml:space="preserve">
+    <value>SQM1023: Either /dbml or /code may be specified, but not both.</value>
+  </data>
+  <data name="CopyrightString" xml:space="preserve">
+    <value>Copyright (C) Microsoft Corporation. All rights reserved.</value>
+  </data>
+  <data name="DirectGenerationDescription" xml:space="preserve">
+    <value>Create code from SqlServer:</value>
+  </data>
+  <data name="InvalidTimeoutFormat" xml:space="preserve">
+    <value>SQM1005: Timeout must be a non-negative integer. Current value is '{0}'.</value>
+  </data>
+  <data name="PasswordUsage" xml:space="preserve">
+    <value>/password:&lt;password&gt;</value>
+  </data>
+  <data name="MapWithoutCode" xml:space="preserve">
+    <value>SQM1024: /map must be used together with /code.</value>
+  </data>
+  <data name="LanguageDescription" xml:space="preserve">
+    <value>Language for source code: VB or C# (default: derived from extension on code file name).</value>
+  </data>
+  <data name="SprocParameterTypeNotSupported" xml:space="preserve">
+    <value>SQM1025: Unable to extract stored procedure '{0}' from SqlServer because parameter '{1}' is the unsupported DbType '{2}'.</value>
+  </data>
+  <data name="SprocResultMultipleAnonymousColumns" xml:space="preserve">
+    <value>SQM1020: Unable to extract stored procedure '{0}' from SqlServer because its result set contains multiple anonymous columns.</value>
+  </data>
+  <data name="ExtractFromSdfDescription" xml:space="preserve">
+    <value>Generate dbml from a SqlCE sdf file:</value>
+  </data>
+  <data name="FunctionsUsage" xml:space="preserve">
+    <value>/functions</value>
+  </data>
+  <data name="InputFileUsage" xml:space="preserve">
+    <value>&lt;input file&gt;</value>
+  </data>
+  <data name="PluralizeDescription" xml:space="preserve">
+    <value>Automatically pluralize or singularize class and member names using English language rules.</value>
+  </data>
+  <data name="ViewsDescription" xml:space="preserve">
+    <value>Extract database views.</value>
+  </data>
+  <data name="CodeDescription" xml:space="preserve">
+    <value>Output as source code. Cannot be used with /dbml option.</value>
+  </data>
+  <data name="UnknownLanguage" xml:space="preserve">
+    <value>SQM1000: Unknown language: '{0}'.</value>
+  </data>
+  <data name="OutputFileNameFormatError" xml:space="preserve">
+    <value>SQM1008: The output file name '{0}' has an invalid format.</value>
+  </data>
+  <data name="EntityBaseUsage" xml:space="preserve">
+    <value>/entitybase:&lt;type&gt;</value>
+  </data>
+  <data name="UnknownOption" xml:space="preserve">
+    <value>SQM1002: Unknown option '{0}'.</value>
+  </data>
+  <data name="NamespaceDescription" xml:space="preserve">
+    <value>Namespace of generated code (default: no namespace).</value>
+  </data>
+  <data name="TimeoutMustNotBeNegative" xml:space="preserve">
+    <value>SQM1006: The value of timeout cannot be negative. Current value is '{0}'.</value>
+  </data>
+  <data name="FunctionDescription" xml:space="preserve">
+    <value>Extract database functions.</value>
+  </data>
+  <data name="SerializationDescription" xml:space="preserve">
+    <value>Generate serializable classes: None or Unidirectional (default: None).</value>
+  </data>
+  <data name="TimeOutDescription" xml:space="preserve">
+    <value>Timeout value to use when SqlMetal accesses the database (default: 0 which means infinite).</value>
+  </data>
+  <data name="SerializationUsage" xml:space="preserve">
+    <value>/serialization:&lt;option&gt;</value>
+  </data>
+  <data name="ProgramDescription3" xml:space="preserve">
+    <value>  - Generate code and mapping attributes or mapping file from a dbml file.</value>
+  </data>
+  <data name="ProgramDescription2" xml:space="preserve">
+    <value>  - Generate an intermediate dbml file for customization from the database.</value>
+  </data>
+  <data name="ProgramDescription1" xml:space="preserve">
+    <value>  - Generate source code and mapping attributes or a mapping file from a database.</value>
+  </data>
+  <data name="ProgramDescription0" xml:space="preserve">
+    <value>  Generates code and mapping for the LINQ to SQL component of the .NET framework. SqlMetal can:</value>
+  </data>
+  <data name="PasswordAndConnectionConflict" xml:space="preserve">
+    <value>SQM1017: Password cannot be specified when a connection string is specified already.</value>
+  </data>
+  <data name="MapUsage" xml:space="preserve">
+    <value>/map[:file]</value>
+  </data>
+  <data name="UserDescription" xml:space="preserve">
+    <value>Login user ID (default: use Windows Authentication).</value>
+  </data>
+  <data name="GenerateFromDbmlDescription" xml:space="preserve">
+    <value>Generate code with external mapping from dbml:</value>
+  </data>
+  <data name="ExtractDbmlDescription" xml:space="preserve">
+    <value>Generate intermediate dbml file from SqlServer:</value>
+  </data>
+  <data name="SprocsUsage" xml:space="preserve">
+    <value>/sprocs</value>
+  </data>
+  <data name="MultipleInputFiles" xml:space="preserve">
+    <value>SQM1004: Multiple input files are not allowed.</value>
+  </data>
+  <data name="UnableToExtractFunction" xml:space="preserve">
+    <value>SQM1014: Unable to extract function '{0}' from SqlServer. {1}</value>
+  </data>
+  <data name="EmptyNameError" xml:space="preserve">
+    <value>SQM1009: The parameter of the command line option '{0}' cannot be empty.</value>
+  </data>
+  <data name="UnableToExtractView" xml:space="preserve">
+    <value>SQM1013: Unable to extract view '{0}' from SqlServer. {1}</value>
+  </data>
+  <data name="UnknownProvider" xml:space="preserve">
+    <value>SQM1022: Unknown provider type: '{0}'.</value>
+  </data>
+  <data name="DbmlOrMapNotBoth" xml:space="preserve">
+    <value>SQM1022: Either /dbml or /map may be specified, but not both.</value>
+  </data>
+  <data name="CouldNotMakePropertyNameForAssociation" xml:space="preserve">
+    <value>Unable to make property name from association {0}.</value>
+  </data>
+  <data name="InputFileDescription" xml:space="preserve">
+    <value>May be a SqlExpress mdf file, a SqlCE sdf file, or a dbml intermediate file.</value>
+  </data>
+  <data name="ViewsUsage" xml:space="preserve">
+    <value>/views</value>
+  </data>
+  <data name="ExtractUsingConnectionStringExample" xml:space="preserve">
+    <value>SqlMetal /conn:"server='myserver'; database='northwind'" /dbml:northwind.dbml</value>
+  </data>
+  <data name="UserUsage" xml:space="preserve">
+    <value>/user:&lt;name&gt;</value>
+  </data>
+  <data name="PasswordDescription" xml:space="preserve">
+    <value>Login password (default: use Windows Authentication).</value>
+  </data>
+  <data name="DatabaseDescription" xml:space="preserve">
+    <value>Database catalog on server.</value>
+  </data>
+  <data name="DbmlUsage" xml:space="preserve">
+    <value>/dbml[:file]</value>
+  </data>
+  <data name="CodeUsage" xml:space="preserve">
+    <value>/code[:file]</value>
+  </data>
+  <data name="ServerAndConnectionConflict" xml:space="preserve">
+    <value>SQM1015: Server cannot be specified when a connection string is specified already.</value>
+  </data>
+  <data name="DbmlDescription" xml:space="preserve">
+    <value>Output as dbml. Cannot be used with /map option.</value>
+  </data>
+  <data name="ServerDescription" xml:space="preserve">
+    <value>Database server name.</value>
+  </data>
+  <data name="GenerateFromDbmlExample" xml:space="preserve">
+    <value>SqlMetal /code:nwind.cs /map:nwind.map northwind.dbml</value>
+  </data>
+</root>

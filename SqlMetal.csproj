@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{8499D6F6-1DBB-4D6D-A79B-4CD68C3119C5}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>SqlMetal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyRef.cs" />
+    <Compile Include="FXAssembly.cs" />
+    <Compile Include="LinqToSqlShared.Common\Severity.cs" />
+    <Compile Include="LinqToSqlShared.Common\Shared.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\AccessModifier.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Association.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\AutoSync.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Cardinality.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\ClassModifier.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Column.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Connection.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\ConnectionMode.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Database.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Dbml.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\DbmlConstant.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\DbmlVisitor.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Error.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Function.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\MemberModifier.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Node.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Parameter.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\ParameterDirection.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Return.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\SerializationMode.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\SR.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\SRCategoryAttribute.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\SRDescriptionAttribute.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Strings.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Table.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\TableFunction.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\TableFunctionParameter.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\TableFunctionReturn.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Type.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\UpdateCheck.cs" />
+    <Compile Include="LinqToSqlShared.DbmlObjectModel\Version.cs" />
+    <Compile Include="LinqToSqlShared.Generator\CodeGeneratorFactory.cs" />
+    <Compile Include="LinqToSqlShared.Generator\Error.cs" />
+    <Compile Include="LinqToSqlShared.Generator\GenerateOptions.cs" />
+    <Compile Include="LinqToSqlShared.Generator\GenerationResult.cs" />
+    <Compile Include="LinqToSqlShared.Generator\IMappingCodeGenerator.cs" />
+    <Compile Include="LinqToSqlShared.Generator\ResultFile.cs" />
+    <Compile Include="LinqToSqlShared.Generator\SR.cs" />
+    <Compile Include="LinqToSqlShared.Generator\SRCategoryAttribute.cs" />
+    <Compile Include="LinqToSqlShared.Generator\SRDescriptionAttribute.cs" />
+    <Compile Include="LinqToSqlShared.Generator\Strings.cs" />
+    <Compile Include="LinqToSqlShared.Generator\ValidationMessage.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\AssociationMapping.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\ColumnMapping.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\DatabaseMapping.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\FunctionMapping.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\MappingParameterDirection.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\MappingSystem.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\MemberMapping.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\ParameterMapping.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\ReturnMapping.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\TableMapping.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\TypeMapping.cs" />
+    <Compile Include="LinqToSqlShared.Mapping\XmlMappingConstant.cs" />
+    <Compile Include="LinqToSqlShared.Utility\DbTypeSystem.cs" />
+    <Compile Include="LinqToSqlShared.Utility\Error.cs" />
+    <Compile Include="LinqToSqlShared.Utility\Naming.cs" />
+    <Compile Include="LinqToSqlShared.Utility\SR.cs" />
+    <Compile Include="LinqToSqlShared.Utility\SRCategoryAttribute.cs" />
+    <Compile Include="LinqToSqlShared.Utility\SRDescriptionAttribute.cs" />
+    <Compile Include="LinqToSqlShared.Utility\Strings.cs" />
+    <Compile Include="LinqToSqlShared.Utility\TypeSystem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlMetal\CommandLineParseResults.cs" />
+    <Compile Include="SqlMetal\ConnectionManager.cs" />
+    <Compile Include="SqlMetal\ConnectionType.cs" />
+    <Compile Include="SqlMetal\DbmlExtractor.cs" />
+    <Compile Include="SqlMetal\DbmlExtractorFactory.cs" />
+    <Compile Include="SqlMetal\DisplayMessage.cs" />
+    <Compile Include="SqlMetal\Error.cs" />
+    <Compile Include="SqlMetal\ExtractOptions.cs" />
+    <Compile Include="SqlMetal\Extractor.cs" />
+    <Compile Include="SqlMetal\ExtractTypes.cs" />
+    <Compile Include="SqlMetal\IDatabaseExtractor.cs" />
+    <Compile Include="SqlMetal\InputType.cs" />
+    <Compile Include="SqlMetal\LanguageType.cs" />
+    <Compile Include="SqlMetal\OutputType.cs" />
+    <Compile Include="SqlMetal\SqlMetalMain.cs" />
+    <Compile Include="SqlMetal\SR.cs" />
+    <Compile Include="SqlMetal\SRCategoryAttribute.cs" />
+    <Compile Include="SqlMetal\SRDescriptionAttribute.cs" />
+    <Compile Include="SqlMetal\Strings.cs" />
+    <Compile Include="ThisAssembly.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LinqToSqlShared.DbmlObjectModel.resx" />
+    <EmbeddedResource Include="LinqToSqlShared.DbmlObjectModel\resx" />
+    <EmbeddedResource Include="LinqToSqlShared.Generator.resx" />
+    <EmbeddedResource Include="LinqToSqlShared.Generator\resx" />
+    <EmbeddedResource Include="LinqToSqlShared.Utility.resx" />
+    <EmbeddedResource Include="LinqToSqlShared.Utility\resx" />
+    <EmbeddedResource Include="SqlMetal.resx" />
+    <EmbeddedResource Include="SqlMetal\resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

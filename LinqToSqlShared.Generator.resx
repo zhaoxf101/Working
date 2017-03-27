@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MultipleDiscriminators" xml:space="preserve">
+    <value>DBML1016: IsDiscriminator cannot be True in the Column element '{0}' of the Type element '{1}' because there is already a discriminator column in the inheritance hierarchy.</value>
+  </data>
+  <data name="StorageCannotBeTheSameAsTypeName" xml:space="preserve">
+    <value>DBML1058: The Storage attribute or its default value for the {0} element '{1}' must be different from the name of the Type element '{2}'.</value>
+  </data>
+  <data name="TypeMappingNotSupported" xml:space="preserve">
+    <value>DBML1005: Mapping between DbType '{0}' and Type '{1}' in {2} '{3}' of {4} '{5}' is not supported.</value>
+  </data>
+  <data name="UnableToExtractSproc" xml:space="preserve">
+    <value>Unable to extract stored procedure '{0}'. Exception: {1}</value>
+  </data>
+  <data name="UnableToExtractTable" xml:space="preserve">
+    <value>Unable to extract table '{0}'. Exception: {1}</value>
+  </data>
+  <data name="ReturnDataLossFromDatabase" xml:space="preserve">
+    <value>DBML1026: Mapping between DbType '{0}' and Type '{1}' in the Return element of the {2} element '{3}' may cause data loss when loading from the database.</value>
+  </data>
+  <data name="ConnectionStringTransferredToCode" xml:space="preserve">
+    <value>DBML1068: Passwords stored in the connection string are written in clear text in the generated code file and the final application assembly. Whenever possible, use Windows Integrated Security to connect so that a password is not required in the connection string.</value>
+  </data>
+  <data name="InvalidDefaultParameterParameterIdentifier" xml:space="preserve">
+    <value>DBML1054: The Name '{0}' of the Parameter element must be a valid variable name when the Parameter attribute is not present.</value>
+  </data>
+  <data name="PrimaryKeyAutoSyncNeedsToBeOnInsertWhenIsDbGenerated" xml:space="preserve">
+    <value>DBML1060: The AutoSync attribute of the Column element '{0}' of the Type element '{1}' needs to be 'OnInsert' when IsDbGenerated and IsPrimaryKey are 'True'.</value>
+  </data>
+  <data name="OwningTeam" xml:space="preserve">
+    <value>DLinq</value>
+  </data>
+  <data name="ReturnUnknownCLRType" xml:space="preserve">
+    <value>DBML1029: Unknown CLR type '{0}' is used in the Return element of the {1} element '{2}'.</value>
+  </data>
+  <data name="SameTypeInheritanceCodeIdentifier" xml:space="preserve">
+    <value>DBML1040: The InheritanceCode attribute '{0}' in the Type element '{1}' has been used already.</value>
+  </data>
+  <data name="InvalidDefaultDatabaseClassIdentifier" xml:space="preserve">
+    <value>DBML1050: The Name '{0}' of the Database element must be a valid variable name when the Class attribute is not present.</value>
+  </data>
+  <data name="InvalidIdentityMememberType" xml:space="preserve">
+    <value>DBML1063: The Column element '{0}' of the Type element '{1}' cannot be used as an identity because '{2}' is not a supported {3} for identity members.</value>
+  </data>
+  <data name="NoInheritanceDefaultTypes" xml:space="preserve">
+    <value>DBML1017: The Table element '{0}' must contain a type that has IsInheritanceDefault set to true in the inheritance hierarchy.</value>
+  </data>
+  <data name="SameColumnNameIdentifier" xml:space="preserve">
+    <value>DBML1041: The Name attribute '{0}' in the Column element of the Type element '{1}' has been used already.</value>
+  </data>
+  <data name="TypeHasNoPrimaryKey" xml:space="preserve">
+    <value>DBML1011: The Type element '{0}' contains the Association element '{1}' but does not have a primary key.  No code will be generated for the association.</value>
+  </data>
+  <data name="ParameterDoesNotExistInFunction" xml:space="preserve">
+    <value>DBML1056: There is no Parameter '{0}' in the Function element '{1}' corresponding to the Argument '{2}' of the TableFunction.</value>
+  </data>
+  <data name="MultipleInheritanceDefaultTypes" xml:space="preserve">
+    <value>DBML1015: IsInheritanceDefault cannot be True in the Type element '{0}' because there is already an inheritance default type in the inheritance hierarchy.</value>
+  </data>
+  <data name="NoDiscriminator" xml:space="preserve">
+    <value>DBML1018: The Table element '{0}' must contain a Column element that has IsDiscriminator set to true in the inheritance hierarchy.</value>
+  </data>
+  <data name="ReturnDataLossBoth" xml:space="preserve">
+    <value>DBML1027: Mapping between DbType '{0}' and Type '{1}' in the Return element of the {2} element '{3}' may cause data loss when saving to and loading from the database.</value>
+  </data>
+  <data name="ReturnDataLossToDatabase" xml:space="preserve">
+    <value>DBML1025: Mapping between DbType '{0}' and Type '{1}' in the Return element of the {2} element '{3}' may cause data loss when saving to the database.</value>
+  </data>
+  <data name="InvalidDeleteOnNullSpecification" xml:space="preserve">
+    <value>DBML1055: The DeleteOnNull attribute of the Association element '{0}' of the Type element '{1}' can only be true for singleton association members mapped to non-nullable foreign key columns.</value>
+  </data>
+  <data name="SameTypeNameIdentifier" xml:space="preserve">
+    <value>DBML1039: The Name attribute '{0}' in the Type element has been used already.</value>
+  </data>
+  <data name="DataLossBoth" xml:space="preserve">
+    <value>DBML1009: Mapping between DbType '{0}' and Type '{1}' in {2} '{3}' of {4} '{5}' may cause data loss when saving to and loading from the database.</value>
+  </data>
+  <data name="NoInheritanceCodeWhenIsInheritanceDefault" xml:space="preserve">
+    <value>DBML1004: The Type element '{0}' must have InheritanceCode when the InheritanceDefault attribute is True.</value>
+  </data>
+  <data name="ExtensibilityMethodDefinitions" xml:space="preserve">
+    <value>Extensibility Method Definitions</value>
+  </data>
+  <data name="SameAssociationMemberIdentifier" xml:space="preserve">
+    <value>DBML1043: The Member attribute '{0}' in the Association element of the Type element '{1}' has been used already.</value>
+  </data>
+  <data name="CouldNotMakeUniqueVariableName" xml:space="preserve">
+    <value>Unable to make unique variable name from '{0}'.</value>
+  </data>
+  <data name="IsComposableAndHasMultipleResultsDoNotMatch" xml:space="preserve">
+    <value>DBML1049: The value of IsComposable and the value of HasMultipleResults do not match in the Function element '{0}'.</value>
+  </data>
+  <data name="SameColumnStorageIdentifier" xml:space="preserve">
+    <value>DBML1057: The Storage attribute or its default value '{0}' in the Column element of the Type element '{1}' has been used already.</value>
+  </data>
+  <data name="OtherSideHasNoPrimaryKey" xml:space="preserve">
+    <value>DBML1062: The Type attribute '{0}' of the Association element '{1}' of the Type element '{2}' does not have a primary key.  No code will be generated for the association.</value>
+  </data>
+  <data name="PrimaryKeyAutoSyncNeedsToBeOnInsertWhenIsVersion" xml:space="preserve">
+    <value>DBML1061: The AutoSync attribute of the Column element '{0}' of the Type element '{1}' needs to be 'OnInsert' when IsVersion and IsPrimaryKey are 'True'.</value>
+  </data>
+  <data name="AttributeIsNotPresent" xml:space="preserve">
+    <value>DBML1013: Attribute '{0}' is not present in {1} '{2}' of the {3} element '{4}'.</value>
+  </data>
+  <data name="AbstractTypeHasInheritanceCode" xml:space="preserve">
+    <value>DBML1003: The Modifier attribute of the Type element '{0}' cannot be Abstract when it has InheritanceCode.</value>
+  </data>
+  <data name="InvalidAssociationMemberIdentifier" xml:space="preserve">
+    <value>DBML1034: The Member attribute '{0}' is not a valid identifier in the Association element of the Type element '{1}'.</value>
+  </data>
+  <data name="SameTableMemberIdentifier" xml:space="preserve">
+    <value>DBML1038: The Member attribute '{0}' in the Table element has been used already.</value>
+  </data>
+  <data name="InvalidEntityNameSpace" xml:space="preserve">
+    <value>DBML1001: EntityNamespace '{0}' is invalid in the Database element '{1}'.</value>
+  </data>
+  <data name="InvalidDefaultTableMemberIdentifier" xml:space="preserve">
+    <value>DBML1051: The Name '{0}' of the Table element must be a valid variable name when the Member attribute is not present.</value>
+  </data>
+  <data name="TypeNotForDiscriminator" xml:space="preserve">
+    <value>DBML1014: The Column element '{0}' of the Type element '{1}' cannot be used as a discriminator because its {2} is '{3}'.</value>
+  </data>
+  <data name="SameParameterNameIdentifier" xml:space="preserve">
+    <value>DBML1046: The Name attribute '{0}' in the Parameter element has been used already.</value>
+  </data>
+  <data name="InvalidITypeNamedentifier" xml:space="preserve">
+    <value>DBML1032: The Name attribute '{0}' is not a valid identifier in the Type element.</value>
+  </data>
+  <data name="UserDefinedDbType" xml:space="preserve">
+    <value>DBML1065: User defined DbType '{0}' is used in {1} '{2}' of the {3} element '{4}' and may not be compatible with the CLR type '{5}'.</value>
+  </data>
+  <data name="DataLossToDatabase" xml:space="preserve">
+    <value>DBML1007: Mapping between DbType '{0}' and Type '{1}' in {2} '{3}' of {4} '{5}' may cause data loss when saving to the database.</value>
+  </data>
+  <data name="ReturnTypeMappingNotSupported" xml:space="preserve">
+    <value>DBML1023: Mapping between DbType '{0}' and Type '{1}' in the Return element of the {2} element '{3}' is not supported.</value>
+  </data>
+  <data name="KeylessTablesCannotHaveCUDOverrides" xml:space="preserve">
+    <value>DBML1064: CUD overrides are not supported in the keyless table '{0}'.</value>
+  </data>
+  <data name="MismatchedThisKeyOtherKey" xml:space="preserve">
+    <value>ThisKey column member '{0}' in association of table '{1}' and key member '{2}' in type '{3}' do not match.</value>
+  </data>
+  <data name="SameFunctionNameIdentifier" xml:space="preserve">
+    <value>DBML1044: The Name attribute '{0}' in the Function element has been used already.</value>
+  </data>
+  <data name="AssociationManysideIsForeignKey" xml:space="preserve">
+    <value>DBML1059: The IsForeignKey attribute of the Association element '{0}' of the Type element '{1}' cannot be 'True' when the Cardinality attribute is 'Many'.</value>
+  </data>
+  <data name="UnknownDbType" xml:space="preserve">
+    <value>DBML1006: Unknown DbType '{0}' is used in {1} '{2}' of {3} '{4}'.</value>
+  </data>
+  <data name="SameColumnMemberIdentifier" xml:space="preserve">
+    <value>DBML1042: The Member attribute '{0}' in the Column element of the Type element '{1}' has been used already.</value>
+  </data>
+  <data name="SubTypesCannotContainPK" xml:space="preserve">
+    <value>DBML1066: The type element '{0}' is a subtype and cannot contain the primary key column '{1}'.</value>
+  </data>
+  <data name="SameParameterParameterIdentifier" xml:space="preserve">
+    <value>DBML1047: The Parameter attribute '{0}' in the Parameter element has been used already.</value>
+  </data>
+  <data name="InvalidDefaultFunctionMethodIdentifier" xml:space="preserve">
+    <value>DBML1053: The Name '{0}' of the Function element must be a valid variable name when the Method attribute is not present.</value>
+  </data>
+  <data name="InvalidTableMemberIdentifier" xml:space="preserve">
+    <value>DBML1031: The Member attribute '{0}' is not a valid identifier in the Table element.</value>
+  </data>
+  <data name="InheritanceCodeMissingWhenHaveDiscriminator" xml:space="preserve">
+    <value>DBML1019: The Type element '{0}' must have an InheritanceCode when its Column element '{1}' is a discriminator.</value>
+  </data>
+  <data name="UnknownCLRType" xml:space="preserve">
+    <value>DBML1028: Unknown CLR type '{0}' is used in {1} '{2}' of the {3} element '{4}'.</value>
+  </data>
+  <data name="InvalidDatabaseClassIdentifier" xml:space="preserve">
+    <value>DBML1030: The Class attribute '{0}' is not a valid identifier in the Database element.</value>
+  </data>
+  <data name="InvalidContextNameSpace" xml:space="preserve">
+    <value>DBML1000: ContextNamespace '{0}' is invalid in the Database element '{1}'.</value>
+  </data>
+  <data name="UnableToExtractFunction" xml:space="preserve">
+    <value>Unable to extract function '{0}'. Exception: {1}</value>
+  </data>
+  <data name="NotTableType" xml:space="preserve">
+    <value>DBML1020: The Type element '{0}' is not a a table type in the database.</value>
+  </data>
+  <data name="UnableToExtractView" xml:space="preserve">
+    <value>Unable to extract view '{0}'. Exception: {1}</value>
+  </data>
+  <data name="CouldNotMakePropertyNameForAssociation" xml:space="preserve">
+    <value>Unable to make property name from association {0}.</value>
+  </data>
+  <data name="TypeNameIsReserved" xml:space="preserve">
+    <value>DBML1067: The type element name '{0}' is reserved and cannot be used by a user type.</value>
+  </data>
+  <data name="IsComposableAndNumberOfTypeDoNotMatch" xml:space="preserve">
+    <value>DBML1048: The value of IsComposable and the number of return types do not match in the Function element '{0}'.</value>
+  </data>
+  <data name="CouldNotMakeUniqueTableName" xml:space="preserve">
+    <value>Unable to make unique table name from '{0}'.</value>
+  </data>
+  <data name="SameTableNameIdentifier" xml:space="preserve">
+    <value>DBML1037: The Table element '{0}' has been used already. Mapping multiple classes to the same table may lead to runtime errors.</value>
+  </data>
+  <data name="InvalidFunctionMethodIdentifier" xml:space="preserve">
+    <value>DBML1035: The Method attribute '{0}' is not a valid identifier in the Function element.</value>
+  </data>
+  <data name="ThisKeyOtherKey" xml:space="preserve">
+    <value>DBML1010: ThisKey and OtherKey do not contain the same number of columns in the Association element '{0}' of the Type element '{1}'.</value>
+  </data>
+  <data name="InvalidDefaultColumnMemberIdentifier" xml:space="preserve">
+    <value>DBML1052: The Name '{0}' of the Column element of the Type element '{1}' must be a valid variable name when the Member attribute is not present.</value>
+  </data>
+  <data name="TableMemberAndMethodConflict" xml:space="preserve">
+    <value>DBML1022: The Method attribute '{0}' of the Function element is already used as the Member attribute of a Table element.</value>
+  </data>
+  <data name="SameFunctionMethodIdentifier" xml:space="preserve">
+    <value>DBML1045: The Method attribute '{0}' in the Function element has been used already.</value>
+  </data>
+  <data name="TwoOrMoreUnnamedColumnsInResultSet" xml:space="preserve">
+    <value>Two or more unnamed columns in result set.</value>
+  </data>
+  <data name="ReturnUnknownDbType" xml:space="preserve">
+    <value>DBML1024: Unknown DbType '{0}' is used in the Return element of the {1} element '{2}'.</value>
+  </data>
+  <data name="DataLossFromDatabase" xml:space="preserve">
+    <value>DBML1008: Mapping between DbType '{0}' and Type '{1}' in {2} '{3}' of {4} '{5}' may cause data loss when loading from the database.</value>
+  </data>
+  <data name="NoKeysSpecifiedInAssociation" xml:space="preserve">
+    <value>DBML1002: ThisKey and OtherKey are required in the Association element '{0}' of the Type element '{1}.</value>
+  </data>
+  <data name="InvalidColumnMemberIdentifier" xml:space="preserve">
+    <value>DBML1033: The Member attribute '{0}' is not a valid identifier in the Column element of the Type element '{1}'.</value>
+  </data>
+  <data name="ColumnMemberDoesNotExist" xml:space="preserve">
+    <value>DBML1012: The Column member '{0}' does not exist in the Type element '{1}'.</value>
+  </data>
+  <data name="MemberCannotBeTheSameAsTypeName" xml:space="preserve">
+    <value>DBML1021: The Member attribute of the {0} element '{1}' must be different from the name of the Type element '{2}'.</value>
+  </data>
+  <data name="InvalidParameterParameterIdentifier" xml:space="preserve">
+    <value>DBML1036: The Parameter attribute '{0}' is not a valid identifier in the Parameter element.</value>
+  </data>
+</root>
