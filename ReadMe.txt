@@ -1,0 +1,1 @@
+﻿/server:(localdb)\projectsV13 /database:TestDemo /views /code:EF1.designer.cs /namespace:EFramework.DalLin

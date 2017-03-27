@@ -132,5 +132,8 @@
     <EmbeddedResource Include="SqlMetal.resx" />
     <EmbeddedResource Include="SqlMetal\resx" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
